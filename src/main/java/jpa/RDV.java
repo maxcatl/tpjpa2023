@@ -1,12 +1,15 @@
 package jpa;
 
 import jakarta.persistence.*;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@XmlRootElement (name = "rendez-vous")
 public class RDV
 {
     private Long id;
@@ -16,6 +19,7 @@ public class RDV
 
     @Id
     @GeneratedValue
+    @XmlElement(name = "id")
     public Long getId()
     {
         return id;
@@ -26,6 +30,7 @@ public class RDV
         this.id = id;
     }
 
+    @XmlElement(name = "date")
     public Date getDate()
     {
         return date;
@@ -37,6 +42,7 @@ public class RDV
     }
 
     @ManyToOne (cascade = CascadeType.PERSIST)
+    @XmlElement(name = "professional")
     public Professional getProfessional()
     {
         return professional;
@@ -48,6 +54,7 @@ public class RDV
     }
 
     @ManyToOne (cascade = CascadeType.PERSIST)
+    @XmlElement(name = "client")
     public Client getClient()
     {
         return client;
