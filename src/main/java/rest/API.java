@@ -6,13 +6,14 @@ import jpa.Client;
 import jpa.Professional;
 import jpa.RDV;
 import jpa.User;
-
 import java.util.List;
+import java.util.logging.Logger;
 
-@Path("API")
-@Produces({"application/xml", "application/json"})
+@Path("res")
+@Produces({"application/xml", "application/json", "text/html"})
 public class API
 {
+
     @GET
     @Path("/user")
     public List<User> getListUser()

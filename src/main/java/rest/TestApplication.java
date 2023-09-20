@@ -26,16 +26,17 @@ import jpa.Professional;
 import jpa.User;
 
 @ApplicationPath("/")
-public class TestApplication extends Application {
-
-
+public class TestApplication extends Application
+{
     @Override
-    public Set<Class<?>> getClasses() {
+    public Set<Class<?>> getClasses()
+    {
 
         final Set<Class<?>> clazzes = new HashSet<Class<?>>();
 
         clazzes.add(OpenApiResource.class);
         clazzes.add(API.class);
+        clazzes.add(Swagger.class);
 //        clazzes.add(Client.class);
 //        clazzes.add(Professional.class);
 //        clazzes.add(AcceptHeaderOpenApiResource.class);
@@ -43,5 +44,4 @@ public class TestApplication extends Application {
 
         return clazzes;
     }
-
 }
