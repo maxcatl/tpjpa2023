@@ -1,10 +1,9 @@
-package jpa;
+package fr.istic.jpa;
 
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
-import java.sql.SQLOutput;
 import java.util.Date;
 import java.util.List;
 

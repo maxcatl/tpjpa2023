@@ -1,18 +1,15 @@
-package jpa;
+package fr.istic.jpa;
 
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@XmlRootElement (name = "client")
+@XmlRootElement (name = "professional")
 @Entity
-public class Client extends User
+public class Professional extends User
 {
 //    private List<RDV> rdvs = new ArrayList<>();
-//
-//    @OneToMany (mappedBy = "client")
+
+//    @OneToMany (mappedBy = "professional")
 //    public List<RDV> getRdvs()
 //    {
 //        return rdvs;
@@ -24,14 +21,14 @@ public class Client extends User
 //    }
 
 
-    public Client(){}
+    public Professional(){}
 
-    public Client(String name, String firstname)
+    public Professional(String name, String firstname)
     {
         super(name, firstname);
     }
 
-//    public Client(String name, String firstname, List<RDV> rdvs)
+//    public Professional(String name, String firstname, List<RDV> rdvs)
 //    {
 //        super(name, firstname);
 //        setRdvs(rdvs);
@@ -40,6 +37,6 @@ public class Client extends User
     @Override
     public String toString()
     {
-        return "Client " + getId() + " : " + getFirstname() + " " + getName();
+        return "Professional " + getId() + " : " + getFirstname() + getName();
     }
 }

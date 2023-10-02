@@ -1,4 +1,4 @@
-package servlet;
+package fr.istic.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

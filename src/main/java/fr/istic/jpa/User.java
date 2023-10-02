@@ -1,4 +1,4 @@
-package jpa;
+package fr.istic.jpa;
 
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlElement;

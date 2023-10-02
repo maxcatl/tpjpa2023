@@ -1,21 +1,19 @@
-package servlet;
+package fr.istic.servlet;
 
-import DAO.DAO_BDD;
+import fr.istic.DAO.DAO_BDD;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jpa.Client;
-import jpa.Professional;
-import jpa.RDV;
-import jpa.User;
+import fr.istic.jpa.Client;
+import fr.istic.jpa.Professional;
+import fr.istic.jpa.RDV;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 

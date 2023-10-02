@@ -1,12 +1,10 @@
-package jpa;
+package fr.istic.jpa;
 
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @XmlRootElement (name = "rendez-vous")

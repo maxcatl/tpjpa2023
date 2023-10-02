@@ -1,7 +1,7 @@
-package DAO;
+package fr.istic.DAO;
 
 import jakarta.persistence.EntityManager;
-import jpa.*;
+import fr.istic.jpa.*;
 import org.hibernate.PersistentObjectException;
 
 import java.util.List;

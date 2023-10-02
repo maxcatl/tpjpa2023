@@ -1,4 +1,4 @@
-package rest;
+package fr.istic.rest;
 /**
  * JBoss, Home of Professional Open Source
  * Copyright Red Hat, Inc., and individual contributors.
@@ -21,9 +21,6 @@ import java.util.Set;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
-import jpa.Client;
-import jpa.Professional;
-import jpa.User;
 
 @ApplicationPath("/")
 public class TestApplication extends Application

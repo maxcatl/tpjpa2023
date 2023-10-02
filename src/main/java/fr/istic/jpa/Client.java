@@ -1,4 +1,4 @@
-package jpa;
+package fr.istic.jpa;
 
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlRootElement;
@@ -6,13 +6,13 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-@XmlRootElement (name = "professional")
+@XmlRootElement (name = "client")
 @Entity
-public class Professional extends User
+public class Client extends User
 {
 //    private List<RDV> rdvs = new ArrayList<>();
-
-//    @OneToMany (mappedBy = "professional")
+//
+//    @OneToMany (mappedBy = "client")
 //    public List<RDV> getRdvs()
 //    {
 //        return rdvs;
@@ -24,14 +24,14 @@ public class Professional extends User
 //    }
 
 
-    public Professional(){}
+    public Client(){}
 
-    public Professional(String name, String firstname)
+    public Client(String name, String firstname)
     {
         super(name, firstname);
     }
 
-//    public Professional(String name, String firstname, List<RDV> rdvs)
+//    public Client(String name, String firstname, List<RDV> rdvs)
 //    {
 //        super(name, firstname);
 //        setRdvs(rdvs);
@@ -40,6 +40,6 @@ public class Professional extends User
     @Override
     public String toString()
     {
-        return "Professional " + getId() + " : " + getFirstname() + getName();
+        return "Client " + getId() + " : " + getFirstname() + " " + getName();
     }
 }
