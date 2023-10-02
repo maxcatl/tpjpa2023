@@ -1,0 +1,32 @@
+/*C1*/SET SCHEMA SYSTEM_LOBS
+INSERT INTO BLOCKS VALUES(0,2147483647,0)
+COMMIT
+/*C2*/SET SCHEMA PUBLIC
+create sequence Client_SEQ start with 1 increment by 50
+create sequence Professional_SEQ start with 1 increment by 50
+create sequence RDV_SEQ start with 1 increment by 50
+create table Client (id bigint not null, name varchar(255), primary key (id))
+create table Professional (id bigint not null, name varchar(255), primary key (id))
+create table RDV (client_id bigint, date timestamp(6), id bigint not null, professional_id bigint, primary key (id))
+alter table RDV add constraint FKkwu7yrhi0oj2i41m27dp5a8k9 foreign key (client_id) references Client
+alter table RDV add constraint FK6pn5vadr66lhs43kmivd7nosj foreign key (professional_id) references Professional
+ALTER SEQUENCE PUBLIC.RDV_SEQ RESTART WITH 101
+DISCONNECT
+/*C3*/SET SCHEMA PUBLIC
+INSERT INTO CLIENT VALUES(1,'Marc')
+INSERT INTO PROFESSIONAL VALUES(1,'john')
+INSERT INTO RDV VALUES(1,'2023-09-08 12:27:55.438000',52,1)
+INSERT INTO PROFESSIONAL VALUES(2,'killian')
+INSERT INTO RDV VALUES(1,'2023-09-08 12:28:55.438000',53,2)
+INSERT INTO CLIENT VALUES(2,'Marc')
+INSERT INTO PROFESSIONAL VALUES(3,'john')
+INSERT INTO RDV VALUES(2,'2023-09-08 12:27:55.480000',54,3)
+INSERT INTO PROFESSIONAL VALUES(4,'killian')
+INSERT INTO RDV VALUES(2,'2023-09-08 12:28:55.480000',55,4)
+ALTER SEQUENCE PUBLIC.RDV_SEQ RESTART WITH 151
+ALTER SEQUENCE PUBLIC.CLIENT_SEQ RESTART WITH 101
+ALTER SEQUENCE PUBLIC.PROFESSIONAL_SEQ RESTART WITH 101
+COMMIT
+DISCONNECT
+/*C4*/SET SCHEMA PUBLIC
+DISCONNECT
