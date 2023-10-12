@@ -16,14 +16,14 @@ L'adresse mail de chaque utilisateur est aussi unique.
 
 ### `Eleve`
 La classe `Eleve` hérite de `Utilisateur` et donc de tous ses attributs.  
-Elle possède en plus un attribut classe(`String`) qui correspond à une classe ou formation.
+Elle possède en plus un attribut formation(`String`) qui correspond à la formation suivie par l'élève.
 
 ### `Professeur`
 La classe `Professeur` hérite de `Utilisateur` et donc de tous ses attributs.  
 Elle possède en plus un attribut spécialité(`String`) qui correspond à une spécialisation de l'enseignant.
 
 ### `RDV`
-La classe `RDV` correspond virtuellement à un rendez-vous. Ce rendez-vous permet a comme propriété un élève(`Eleve`), un professeur(`Professeur`), une date de début(`Date`), une date de fin(`Date`) ainsi qu'un lieu(`String`).  
+La classe `RDV` correspond virtuellement à un rendez-vous. Ce rendez-vous a comme propriété un élève(`Eleve`), un professeur(`Professeur`), une date de début(`Date`), une date de fin(`Date`) ainsi qu'un lieu(`String`).  
 `RDV` possède également un attribut duree(`Duration`) qui est calculé en fonction de la date de début et de fin du RDV et qui ne peut pas être modifié directement.  
 Il se trouve aussi un attribut Id(`long`) qui est unique.
 
@@ -37,6 +37,8 @@ Il est possible de modifier cette adresse en modifiant la propriété value de l
 dans `src/main/ressources/META-INF/persistence.xml`
 
 ### Lancement de la démo prédéfinie
-Un ensemble de tests sont prédéfinis effectuant diverses actions comme la création d'entités, la modification de celles-ci, la suppression ainsi que des tests voués à échouer comme la tentative d'ajouter un doublon. Ces tests se trouvent dans le fichier `src/main/java/fr/istic/jpa/JpaTest.java`. Des commentaires se trouvent à l'intérieur du fichier pour expliquer ce que le code fait. Lors de l'execution, les requêtes JPQL sont affichées dans la console.
+Un ensemble de tests sont prédéfinis effectuant diverses actions comme la création d'entités, la modification de celles-ci, la suppression ainsi que des tests voués à échouer comme la tentative d'ajouter un doublon. Ces tests se trouvent dans le fichier `src/main/java/fr/istic/jpa/JpaTest.java`. Des commentaires se trouvent à l'intérieur du fichier pour expliquer ce que le code fait. Lors de l'exécution, les requêtes JPQL sont affichées dans la console.
 
 Il est également possible d'effectuer des tests personnalisés en les implémentant directement dans la fonction `main` du fichier `JpaTest.java`
+
+#### /!\ Les tables sont supprimées à chaque lancement de l'application
