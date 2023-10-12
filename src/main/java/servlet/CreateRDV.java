@@ -1,21 +1,18 @@
 package servlet;
 
 import DAO.DAO_BDD;
+import fr.istic.domain.Professeur;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jpa.Client;
-import jpa.Professional;
-import jpa.RDV;
-import jpa.User;
+import fr.istic.domain.Eleve;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -28,17 +25,17 @@ public class CreateRDV extends HttpServlet
         writer.println("<html>\n<body>");
 
         DAO_BDD bdd = new DAO_BDD();
-        List<Client> clients = bdd.listClients();
-        List<Professional> professionals = bdd.listProfessionals();
+        List<Eleve> eleves = bdd.listClients();
+        List<Professeur> professeurs = bdd.listProfessionals();
 
-        if (clients == null || clients.isEmpty())
+        if (eleves == null || eleves.isEmpty())
         {
             writer.println("<p>Erreur : aucun client trouvé</p>");
             writer.println("</body>\n</html>");
             writer.flush();
             return;
         }
-        if (professionals == null || professionals.isEmpty())
+        if (professeurs == null || professeurs.isEmpty())
         {
             writer.println("<p>Erreur : aucun professionel trouvé</p>");
             writer.println("</body>\n</html>");
@@ -51,19 +48,19 @@ public class CreateRDV extends HttpServlet
         //select client
         writer.println("<label for=\"selectClient\">Select a client</label><br/>\n" +
                 "<select name=\"selectClient\" id=\"selectClient\">");
-        for (Client client : clients)
+        for (Eleve eleve : eleves)
         {
-            writer.println("<option value=\"" + client.getId() + "\">" + client.getFirstname() + " " + client.getName() + "</options>");
+            writer.println("<option value=\"\">" + eleve.getPrenom() + " " + eleve.getNom() + "</options>");
         }
         writer.println("</select><br/>");
 
 
         //select professional
-        writer.println("<label for=\"selectProfessional\">Select a Professional</label><br/>\n" +
+        writer.println("<label for=\"selectProfessional\">Select a Professeur</label><br/>\n" +
                 "<select name=\"selectProfessional\" id=\"selectProfessional\">");
-        for (Professional professional : professionals)
+        for (Professeur professeur : professeurs)
         {
-            writer.println("<option value=\"" + professional.getId() + "\">" + professional.getFirstname() + " " + professional.getName() + "</options>");
+            writer.println("<option value=\"\">" + professeur.getPrenom() + " " + professeur.getNom() + "</options>");
         }
         writer.println("</select><br/>");
 
@@ -94,13 +91,13 @@ public class CreateRDV extends HttpServlet
 
         if (professionalId == null || professionalId.isBlank())
         {
-            writer.println("<h3>No professional selected</h3>");
+            writer.println("<h3>No professeur selected</h3>");
             writer.flush();
             return;
         }
         if (clientId == null || clientId.isBlank())
         {
-            writer.println("<h3>No client selected</h3>");
+            writer.println("<h3>No eleve selected</h3>");
             writer.flush();
             return;
         }
@@ -126,14 +123,14 @@ public class CreateRDV extends HttpServlet
         }
 
 
-        Professional professional = bdd.getProfessional(Long.parseLong(professionalId));
-        Client client = bdd.getClient(Long.parseLong(clientId));
+        Professeur professeur = bdd.getProfessional(Long.parseLong(professionalId));
+        Eleve eleve = bdd.getClient(Long.parseLong(clientId));
 
-        bdd.addRDV(new RDV(date, professional, client));
+//        bdd.addRDV(new RDV(date, professeur, eleve));
 
         writer.println("<h2>Rendez-vous created :</h2>\n" +
-                "<p>Professional : " + professional.getFirstname() + " " + professional.getName() + "</p>\n" +
-                "<p>Client : " + client.getFirstname() + " " + client.getName() + "</p>\n" +
+                "<p>Professeur : " + professeur.getPrenom() + " " + professeur.getNom() + "</p>\n" +
+                "<p>Eleve : " + eleve.getPrenom() + " " + eleve.getNom() + "</p>\n" +
                 "<p>date : " + date + "</p>");
 
         writer.println("</body>\n</html>");

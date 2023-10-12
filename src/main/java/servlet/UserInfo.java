@@ -6,8 +6,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jpa.Client;
-import jpa.Professional;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -48,11 +46,11 @@ public class UserInfo extends HttpServlet
         }
 
 
-        DAO_BDD bdd = new DAO_BDD();
-        if (accountType.equals("professional"))
-            bdd.addPro(new Professional(name, firstname));
-        else
-            bdd.addClient(new Client(name, firstname));
+//        DAO_BDD bdd = new DAO_BDD();
+//        if (accountType.equals("professional"))
+//            bdd.addPro(new Professeur(name, firstname));
+//        else
+//            bdd.addClient(new Eleve(name, firstname));
 
         out.println("<h3>Utilisateur    ajouté à la base de donnée</h3><br/>\n" +
                 "<a href=\"index.html\">Retour à la page d'accueil</a>\n" +

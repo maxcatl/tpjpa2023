@@ -1,13 +1,12 @@
 package rest;
 
 import DAO.DAO_BDD;
+import fr.istic.domain.Eleve;
 import jakarta.ws.rs.*;
-import jpa.Client;
-import jpa.Professional;
-import jpa.RDV;
-import jpa.User;
+import fr.istic.domain.Professeur;
+import fr.istic.domain.RDV;
+import fr.istic.domain.Utilisateur;
 import java.util.List;
-import java.util.logging.Logger;
 
 @Path("res")
 @Produces({"application/xml", "application/json", "text/html"})
@@ -16,7 +15,7 @@ public class API
 
     @GET
     @Path("/user")
-    public List<User> getListUser()
+    public List<Utilisateur> getListUser()
     {
         DAO_BDD bdd = new DAO_BDD();
         return bdd.listUsers();
@@ -24,7 +23,7 @@ public class API
 
     @GET
     @Path("/user/{id}")
-    public User getUser(@PathParam("id") long id)
+    public Utilisateur getUser(@PathParam("id") long id)
     {
         DAO_BDD bdd = new DAO_BDD();
         return bdd.getUser(id);
@@ -49,7 +48,7 @@ public class API
     @PUT
     @Path("/addProfessional")
     @Consumes({"application/json", "application/xml"})
-    public void addPro(Professional pro)
+    public void addPro(Professeur pro)
     {
         DAO_BDD bdd = new DAO_BDD();
         if (pro != null)
@@ -59,11 +58,11 @@ public class API
     @PUT
     @Path("/addClient")
     @Consumes({"application/json", "application/xml"})
-    public void addClient(Client client)
+    public void addClient(Eleve eleve)
     {
         DAO_BDD bdd = new DAO_BDD();
-        if (client != null)
-            bdd.addClient(client);
+        if (eleve != null)
+            bdd.addClient(eleve);
     }
 
     @PUT

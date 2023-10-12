@@ -1,6 +1,6 @@
 package rest;
 /**
- * JBoss, Home of Professional Open Source
+ * JBoss, Home of Professeur Open Source
  * Copyright Red Hat, Inc., and individual contributors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,9 +21,6 @@ import java.util.Set;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
-import jpa.Client;
-import jpa.Professional;
-import jpa.User;
 
 @ApplicationPath("/")
 public class TestApplication extends Application
@@ -37,8 +34,8 @@ public class TestApplication extends Application
         clazzes.add(OpenApiResource.class);
         clazzes.add(API.class);
         clazzes.add(Swagger.class);
-//        clazzes.add(Client.class);
-//        clazzes.add(Professional.class);
+//        clazzes.add(Eleve.class);
+//        clazzes.add(Professeur.class);
 //        clazzes.add(AcceptHeaderOpenApiResource.class);
 
 

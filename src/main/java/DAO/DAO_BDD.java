@@ -1,7 +1,11 @@
 package DAO;
 
+import fr.istic.domain.Eleve;
+import fr.istic.domain.Professeur;
+import fr.istic.domain.RDV;
+import fr.istic.domain.Utilisateur;
 import jakarta.persistence.EntityManager;
-import jpa.*;
+import fr.istic.jpa.*;
 import org.hibernate.PersistentObjectException;
 
 import java.util.List;
@@ -15,12 +19,12 @@ public class DAO_BDD
         manager = EntityManagerHelper.getEntityManager();
     }
 
-    public boolean addClient(Client client)
+    public boolean addClient(Eleve eleve)
     {
-        if (client.getName() != null && !client.getName().isBlank() && client.getFirstname() != null && !client.getFirstname().isBlank())
+        if (eleve.getNom() != null && !eleve.getNom().isBlank() && eleve.getPrenom() != null && !eleve.getPrenom().isBlank())
         {
             manager.getTransaction().begin();
-            manager.persist(client);
+            manager.persist(eleve);
             manager.getTransaction().commit();
             return true;
         }
@@ -30,9 +34,9 @@ public class DAO_BDD
         }
     }
 
-    public boolean addPro(Professional pro)
+    public boolean addPro(Professeur pro)
     {
-        if (pro.getName() != null && !pro.getName().isBlank() && pro.getFirstname() != null && !pro.getFirstname().isBlank())
+        if (pro.getNom() != null && !pro.getNom().isBlank() && pro.getPrenom() != null && !pro.getPrenom().isBlank())
         {
             manager.getTransaction().begin();
             manager.persist(pro);
@@ -45,8 +49,8 @@ public class DAO_BDD
 
     public boolean addRDV(RDV rdv)
     {
-        if (rdv.getClient() != null && rdv.getProfessional() != null && rdv.getDate() != null)
-        {
+//        if (rdv.getEleve() != null && rdv.getProfesseur() != null && rdv.getDate() != null)
+//        {
             try
             {
                 manager.getTransaction().begin();
@@ -60,18 +64,18 @@ public class DAO_BDD
                 manager.getTransaction().commit();
             }
             return true;
-        }
-        return false;
+//        }
+//        return false;
     }
 
-    public List<Professional> listProfessionals()
+    public List<Professeur> listProfessionals()
     {
-        return manager.createQuery("Select a From Professional a", Professional.class).getResultList();
+        return manager.createQuery("Select a From Professeur a", Professeur.class).getResultList();
     }
 
-    public List<Client> listClients()
+    public List<Eleve> listClients()
     {
-        return manager.createQuery("select a from Client a", Client.class).getResultList();
+        return manager.createQuery("select a from Eleve a", Eleve.class).getResultList();
     }
 
     public List<RDV> listRdvs()
@@ -79,14 +83,14 @@ public class DAO_BDD
         return manager.createQuery("select a from RDV a", RDV.class).getResultList();
     }
 
-    public Professional getProfessional(long id)
+    public Professeur getProfessional(long id)
     {
-        return manager.createQuery("select a from Professional a where a.id = " + id, Professional.class).getSingleResult();
+        return manager.createQuery("select a from Professeur a where a.id = " + id, Professeur.class).getSingleResult();
     }
 
-    public Client getClient(long id)
+    public Eleve getClient(long id)
     {
-        return manager.createQuery("select a from Client a where a.id = " + id, Client.class).getSingleResult();
+        return manager.createQuery("select a from Eleve a where a.id = " + id, Eleve.class).getSingleResult();
     }
 
     public RDV getRdv(long id)
@@ -94,27 +98,27 @@ public class DAO_BDD
         return manager.createQuery("select a from RDV a where a.id = " + id, RDV.class).getSingleResult();
     }
 
-    public List<User> listUsers()
+    public List<Utilisateur> listUsers()
     {
-        return manager.createQuery("select a from User a", User.class).getResultList();
+        return manager.createQuery("select a from Utilisateur a", Utilisateur.class).getResultList();
     }
 
-    public User getUser(long id)
+    public Utilisateur getUser(long id)
     {
-        return manager.createQuery("select a from User a where a.id = " + id, User.class).getSingleResult();
+        return manager.createQuery("select a from Utilisateur a where a.id = " + id, Utilisateur.class).getSingleResult();
     }
 
     public void deleteProfessional(long id)
     {
         manager.getTransaction().begin();
-        manager.createQuery("delete from Professional u where u.id = " + id).executeUpdate();
+        manager.createQuery("delete from Professeur u where u.id = " + id).executeUpdate();
         manager.getTransaction().commit();
     }
 
     public void deleteClient(long id)
     {
         manager.getTransaction().begin();
-        manager.createQuery("delete from Client c where c.id = " + id).executeUpdate();
+        manager.createQuery("delete from Eleve c where c.id = " + id).executeUpdate();
         manager.getTransaction().commit();
     }
 
