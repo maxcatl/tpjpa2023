@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@XmlRootElement (name = "professional")
 @Entity
 public class Professeur extends Utilisateur
 {

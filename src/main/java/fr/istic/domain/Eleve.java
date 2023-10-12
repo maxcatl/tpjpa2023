@@ -5,19 +5,18 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-//@XmlRootElement (name = "client")
 @Entity
 public class Eleve extends Utilisateur
 {
-    private String classe;
+    private String formation;
     private List<RDV> rdvs = new ArrayList<>();
 
     public Eleve(){}
 
-    public Eleve(String name, String firstname, String email, String classe)
+    public Eleve(String name, String firstname, String email, String formation)
     {
         super(name, firstname, email);
-        this.classe = classe;
+        this.formation = formation;
     }
 
     @Override
@@ -59,14 +58,14 @@ public class Eleve extends Utilisateur
         return this;
     }
 
-    public String getClasse()
+    public String getFormation()
     {
-        return classe;
+        return formation;
     }
 
-    public Eleve setClasse(String classe)
+    public Eleve setFormation(String formation)
     {
-        this.classe = classe;
+        this.formation = formation;
         return this;
     }
 }

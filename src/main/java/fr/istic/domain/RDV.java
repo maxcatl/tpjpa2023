@@ -8,7 +8,6 @@ import java.time.Duration;
 import java.util.Date;
 
 @Entity
-//@XmlRootElement (name = "rendez-vous")
 public class RDV implements Serializable
 {
     private Long id;
@@ -35,7 +34,6 @@ public class RDV implements Serializable
     @Id
     @GeneratedValue(generator="native")
     @GenericGenerator(name = "native")
-//    @XmlElement(name = "id")
     public Long getId()
     {
         return id;
@@ -47,7 +45,6 @@ public class RDV implements Serializable
         return this;
     }
 
-    //    @XmlElement(name = "date")
     public Date getDateDebut()
     {
         return dateDebut;
@@ -73,7 +70,6 @@ public class RDV implements Serializable
     }
 
     @ManyToOne (cascade = CascadeType.PERSIST)
-//    @XmlElement(name = "professeur")
     public Professeur getProfesseur()
     {
         return professeur;
@@ -91,7 +87,6 @@ public class RDV implements Serializable
     }
 
     @ManyToOne (cascade = CascadeType.PERSIST)
-//    @XmlElement(name = "eleve")
     public Eleve getEleve()
     {
         return eleve;

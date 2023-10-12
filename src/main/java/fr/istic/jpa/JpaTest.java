@@ -41,7 +41,7 @@ public class JpaTest {
 		logger.info(()->p1.getRdvs().toString());
 
 
-		//tentative de sauvegarde d'un eleve avec un email déjà utilisé
+		//tentative de sauvegarde d'un élève avec un email déjà utilisé
 		if (eleveDao.save(new Eleve("Maxime", "Le Gal", "maxime.le-gal@etudiant.univ-rennes.fr", "IL")))
 			logger.info("L'entité existe déjà");
 
@@ -68,10 +68,10 @@ public class JpaTest {
 		//suppression d'un élève utilisé dans un rdv
 		eleveDao.deleteById(Integer.toUnsignedLong(4));
 
-		//suppression élève et RDV
+		//suppressions
 		eleveDao.deleteById(Integer.toUnsignedLong(1));
-		professeurDao.deleteById(Integer.toUnsignedLong(2));
 		rdvDao.deleteById(Integer.toUnsignedLong(1));
+		professeurDao.deleteById(Integer.toUnsignedLong(2));
 	}
 
 }
