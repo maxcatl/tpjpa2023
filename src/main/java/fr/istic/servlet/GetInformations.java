@@ -40,7 +40,8 @@ public class GetInformations extends HttpServlet
 
             }
             out.println("<!DOCTYPE html>\n<head>\n<meta charset=\"UTF-8\">\n<title>Erreur : fichier manquant</title>\n</head>\n<html>\n<body>");
-            out.println("<p>Le fichier source \"/html/getInfos.html\" n'a pas pu être trouvé");
+            out.println("<p>Le fichier source \"/html/getInfos.html\" n'a pas pu être trouvé</p>\n");
+            out.println("<a href=\"index.html\">Retour à la page d'accueil</a>");
             out.println("</body></html>");
 
             out.flush();
@@ -61,7 +62,7 @@ public class GetInformations extends HttpServlet
                     "</head>\n" +
                     "<html>\n" +
                     "<body>");
-            String endHTML = "</body></html>";
+            String endHTML = "<a href=\"/getInformations\">Retour à la page de recherche</a><br/>\n<a href=\"index.html\">Retour à la page d'accueil</a></body></html>";
 
             String resourceType = req.getParameter("resourceType");
             String resourceQuantity = req.getParameter("resourceQuantity");

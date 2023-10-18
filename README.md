@@ -1,5 +1,11 @@
-# TAA - TP1 JPA - Maxime Le Gal
-Ce projet permet de créer des rendez-vous entre un élève et un professeur. Ces rendez-vous possèdent une durée avec une date de début et de fin. Les données sont stockées dans une base de données mysql grâce à JPA.
+# TAA - TP2 Servlet & REST - Maxime Le Gal
+Ce projet permet de créer des rendez-vous entre un élève et un professeur. Ces rendez-vous possèdent une durée avec une date de début et de fin. Les données sont stockées dans une base de données mysql grâce à JPA. Dans ce TP, il est possible de manipuler les données en base de données depuis des pages webs.
+
+Ce TP est composé de deux parties :
+- Une première partie sur les servlets ;
+- Une deuxième partie avec une API Rest.
+
+Le modèle et les DAO utilisés sont les mêmes que lors du TP1.
 
 ## modèle
 Le modèle comprend 3 classes concrètes : 
@@ -36,7 +42,11 @@ Il est possible de modifier cette adresse en modifiant la propriété value de l
 ```
 dans `src/main/ressources/META-INF/persistence.xml`
 
-### Lancement de la démo prédéfinie
-Un ensemble de tests sont prédéfinis effectuant diverses actions comme la création d'entités, la modification de celles-ci, la suppression ainsi que des tests voués à échouer comme la tentative d'ajouter un doublon. Ces tests se trouvent dans le fichier `src/main/java/fr/istic/jpa/JpaTest.java`. Des commentaires se trouvent à l'intérieur du fichier pour expliquer ce que le code fait. Lors de l'execution, les requêtes JPQL sont affichées dans la console.
+Par défaut, il n'y a pas de données dans la base de données, mais il est possible d'en rajouter en exécutant la classe `JpaTest` qui s'utilise comme dans le TP1.
 
-Il est également possible d'effectuer des tests personnalisés en les implémentant directement dans la fonction `main` du fichier `JpaTest.java`
+## 1. Partie servlets
+Pour pouvoir accéder au serveur web, il faut exécuter `jetty:run`, ce qui va lancer le serveur web, puis se rendre sur le lien [`localhost:8080/`](http://localhost:8080) qui mène à la page d'accueil du site web. Trois liens sont alors disponibles pour intéragir avec la base.
+
+- Le premier permet d'ajouter un professeur ou un élève à la base de données en saisissant ses informations dans un formulaire.
+- Le deuxième permet de créer un rendez-vous, en saisissant un élève, un professeur, une date de début et de fin et un lieu. S'il n'y a pas de professeur ou d'élève disponible dans la base, il ne sera pas possible de saisir un rendez-vous.
+- Le troisième permet d'obtenir des ressources de la base (élève,  professeur, rendez-vous). Pour chaque ressource, il est possible d'obtenir la liste de tous les éléments de cette ressource, ou d'obtenir un élément spécifique à l'aide de son id.
