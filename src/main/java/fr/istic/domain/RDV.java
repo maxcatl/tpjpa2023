@@ -14,7 +14,7 @@ public class RDV implements Serializable
     private Long id;
     private Date dateDebut;
     private Date dateFin;
-    private Duration duree;
+    private long duree;
     private Professeur professeur;
     private Eleve eleve;
     private String lieu;
@@ -119,12 +119,12 @@ public class RDV implements Serializable
         return this;
     }
 
-    public Duration getDuree()
+    public long getDuree()
     {
         return duree;
     }
 
-    public RDV setDuree(Duration duree)
+    public RDV setDuree(long duree)
     {
         calculerDuree();
         return this;
@@ -133,9 +133,15 @@ public class RDV implements Serializable
     private void calculerDuree()
     {
         if (dateDebut == null || dateFin == null)
-            this.duree = Duration.ZERO;
+            this.duree = 0;
         else
-            this.duree = Duration.between(dateDebut.toInstant(), dateFin.toInstant());
+            this.duree = Duration.between(dateDebut.toInstant(), dateFin.toInstant()).toMinutes();
     }
     //endregion
+
+    @Override
+    public String toString()
+    {
+        return "Rendez-vous : " + getProfesseur() + " - " + getEleve() + " / " + getDateDebut() + " - " + getDateFin() + " / " + getLieu();
+    }
 }

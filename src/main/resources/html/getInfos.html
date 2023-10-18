@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        window.onload = enableInput;
+        function enableInput()
+        {
+            if (document.getElementById("byId").checked)
+            {
+                document.getElementById("resourceId").disabled = false;
+            }
+            else
+            {
+                document.getElementById("resourceId").disabled = true;
+            }
+        }
+    </script>
+    <title>Obtenir des informations de la BBD</title>
+</head>
+<body>
+    <form method="post" action="/getInformations">
+        Veuillez sélectionner le type de ressource voulu : <br/>
+        <input type="radio" name="resourceType" value="eleve" id="eleve" required> <label for="eleve">Eleve</label><br/>
+        <input type="radio" name="resourceType" value="professeur" id="professeur" required> <label for="professeur">Professeur</label><br>
+        <input type="radio" name="resourceType" value="rdv" id="rdv" required> <label for="rdv">Rendez-vous</label><br><br/>
+
+        Veuillez sélectionner la quantité voulue : <br/>
+        <input type="radio" name="resourceQuantity" value="all" id="all" onchange="enableInput()" required> <label for="all">Toutes les ressources disponibles</label><br/>
+        <input type="radio" name="resourceQuantity" value="byId" id="byId" onchange="enableInput()" required> <label for="byId">Seulement la ressource avec l'ID</label>
+        <input type="number" name="resourceId" id="resourceId" value="0" min="0" required><br/>
+
+        <input type="submit" value="valider">
+    </form>
+</body>
+</html>
