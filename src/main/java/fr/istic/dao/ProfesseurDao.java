@@ -8,4 +8,9 @@ public class ProfesseurDao extends AbstractJpaDao<Long, Professeur>
     {
         super(Professeur.class);
     }
+
+    public Professeur findByEmail(String email)
+    {
+        return entityManager.createQuery("select p from Professeur p where p.email = \"" + email + "\"",clazz).getSingleResult();
+    }
 }
