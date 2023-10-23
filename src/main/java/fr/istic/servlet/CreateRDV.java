@@ -5,7 +5,6 @@ import fr.istic.dao.ProfesseurDao;
 import fr.istic.dao.RDVDao;
 import fr.istic.domain.Professeur;
 import fr.istic.domain.RDV;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +25,7 @@ public class CreateRDV extends HttpServlet
     private static final String END_HTML = "</body>\n</html>";
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws ServletException, IOException
+    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws IOException
     {
         response.setContentType("text/html");
         PrintWriter writer = new PrintWriter(response.getOutputStream());
@@ -97,7 +96,7 @@ public class CreateRDV extends HttpServlet
     }
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html");

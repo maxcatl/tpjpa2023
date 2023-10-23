@@ -29,7 +29,7 @@ La classe `Professeur` hérite de `Utilisateur` et donc de tous ses attributs.
 Elle possède en plus un attribut spécialité(`String`) qui correspond à une spécialisation de l'enseignant.
 
 ### `RDV`
-La classe `RDV` correspond virtuellement à un rendez-vous. Ce rendez-vous permet a comme propriété un élève(`Eleve`), un professeur(`Professeur`), une date de début(`Date`), une date de fin(`Date`) ainsi qu'un lieu(`String`).  
+La classe `RDV` correspond virtuellement à un rendez-vous. Ce rendez-vous a comme propriété un élève(`Eleve`), un professeur(`Professeur`), une date de début(`Date`), une date de fin(`Date`) ainsi qu'un lieu(`String`).  
 `RDV` possède également un attribut duree(`Duration`) qui est calculé en fonction de la date de début et de fin du RDV et qui ne peut pas être modifié directement.  
 Il se trouve aussi un attribut Id(`long`) qui est unique.
 
@@ -42,14 +42,14 @@ Il est possible de modifier cette adresse en modifiant la propriété value de l
 ```
 dans `src/main/ressources/META-INF/persistence.xml`
 
-Par défaut, il n'y a pas de données dans la base de données, mais il est possible d'en rajouter en exécutant la classe `JpaTest` qui s'utilise comme dans le TP1.
+Par défaut, il n'y a pas de données dans la base de données, mais il est possible d'en rajouter en exécutant la classe `JpaTest` qui s'utilise comme dans le TP1. L'exécution se passera sans erreurs si les tables viennent d'être créées et sont vides (ou pas encore créées) car sinon les id risquent de différer.
 
 ### 1. Partie servlets
 La partie servlet permet de pouvoir accéder à une interface web permettant d'intéragir avec la base de données en lecture et en écriture. Pour pouvoir accéder au serveur web, il faut exécuter `jetty:run`, ce qui va lancer le serveur web, puis se rendre sur le lien [`localhost:8080/`](http://localhost:8080) qui mène à la page d'accueil du site web. Trois liens sont alors disponibles pour intéragir avec la base.
 
 - Le premier permet d'ajouter un professeur ou un élève à la base de données en saisissant ses informations dans un formulaire.
 - Le deuxième permet de créer un rendez-vous, en saisissant un élève, un professeur, une date de début et de fin et un lieu. S'il n'y a pas de professeur ou d'élève disponible dans la base, il ne sera pas possible de saisir un rendez-vous.
-- Le troisième permet d'obtenir des ressources de la base (élève,  professeur, rendez-vous). Pour chaque ressource, il est possible d'obtenir la liste de tous les éléments de cette ressource, ou d'obtenir un élément spécifique à l'aide de son id.
+- Le troisième permet d'obtenir des ressources de la base (élève, professeur, rendez-vous). Pour chaque ressource, il est possible d'obtenir la liste de tous les éléments de cette ressource, ou d'obtenir un élément spécifique à l'aide de son id.
 
 ### 2. Partie REST api
 La partie REST permet de pouvoir accéder à la base de données par le biais de requêtes HTTP. L'API met à disposition un certain nombre d'URL permettant d'accéder aux données, de les filtrer, d'en ajouter de nouvelles, modifier des données existantes ou de les supprimer.

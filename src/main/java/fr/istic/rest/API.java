@@ -7,7 +7,6 @@ import jakarta.ws.rs.PathParam;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
-import java.util.logging.Logger;
 
 @Path("api")
 public class API
@@ -18,7 +17,7 @@ public class API
         try {
             return Files.readAllBytes(FileSystems.getDefault().getPath("src/main/webapp/swagger/dist/index.html"));
         } catch (IOException e) {
-            return null;
+            return new byte[0];
         }
     }
 
@@ -28,7 +27,7 @@ public class API
         try {
             return Files.readAllBytes(FileSystems.getDefault().getPath("src/main/webapp/swagger/dist/"+path));
         } catch (IOException e) {
-            return null;
+            return new byte[0];
         }
     }
 }

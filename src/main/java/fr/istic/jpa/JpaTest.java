@@ -1,19 +1,15 @@
 package fr.istic.jpa;
 
 
-import fr.istic.dao.EleveDao;
 import fr.istic.dao.ProfesseurDao;
 import fr.istic.dao.RDVDao;
 import fr.istic.domain.Eleve;
 import fr.istic.domain.Professeur;
 import fr.istic.domain.RDV;
-import jakarta.persistence.RollbackException;
 
 import java.util.Date;
-import java.util.logging.Logger;
 
 public class JpaTest {
-	private static final Logger logger = Logger.getLogger("JPATest");
 
 	/**
 	 * @param args no argument needed

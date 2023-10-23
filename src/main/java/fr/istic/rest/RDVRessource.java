@@ -53,22 +53,6 @@ public class RDVRessource
         return rdvs;
     }
 
-//    @GET
-//    @Path("/email/{email}")
-//    public Eleve getEleveByEmail(@PathParam("email") String email)
-//    {
-//        EleveDao bdd = new EleveDao();
-//        try
-//        {
-//            return bdd.findByEmail(email);
-//        }
-//        catch (NoResultException e)
-//        {
-//            throw new NotFoundException("No eleve with email " + email + " found !");
-//        }
-//
-//    }
-
     @PUT
     @Path("/")
     @Consumes({"application/json", "application/xml"})

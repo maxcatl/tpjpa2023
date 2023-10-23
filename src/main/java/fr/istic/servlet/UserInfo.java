@@ -4,7 +4,6 @@ import fr.istic.dao.EleveDao;
 import fr.istic.dao.ProfesseurDao;
 import fr.istic.domain.Eleve;
 import fr.istic.domain.Professeur;
-import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,7 +16,7 @@ import java.io.PrintWriter;
 public class UserInfo extends HttpServlet
 {
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException
     {
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
