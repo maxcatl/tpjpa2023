@@ -69,9 +69,16 @@ public abstract class AbstractJpaDao<K, T extends Serializable> implements IGene
 	public void delete(T entity) {
 		EntityTransaction t = this.entityManager.getTransaction();
 		t.begin();
-		entityManager.remove(entity);
-		t.commit();
-
+		try
+		{
+			entityManager.remove(entity);
+			t.commit();
+		}
+		catch (Exception e)
+		{
+			t.rollback();
+			throw new NullPointerException("Entity couldn't be removed (verify id existence)");
+		}
 	}
 
 	public void deleteById(K entityId) {

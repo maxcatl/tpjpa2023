@@ -1,12 +1,14 @@
 package fr.istic.domain;
 
 import jakarta.persistence.*;
+import jakarta.xml.bind.annotation.XmlRootElement;
+import jakarta.xml.bind.annotation.XmlTransient;
 
 import java.util.ArrayList;
 import java.util.List;
 
-//@XmlRootElement (name = "professional")
 @Entity
+@XmlRootElement(name = "professeur")
 public class Professeur extends Utilisateur
 {
     private String specialite;
@@ -27,6 +29,7 @@ public class Professeur extends Utilisateur
     }
 
     @OneToMany(mappedBy = "professeur")
+    @XmlTransient
     public List<RDV> getRdvs()
     {
         return rdvs;

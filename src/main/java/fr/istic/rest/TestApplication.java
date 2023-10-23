@@ -1,4 +1,4 @@
-package rest;
+package fr.istic.rest;
 /**
  * JBoss, Home of Professeur Open Source
  * Copyright Red Hat, Inc., and individual contributors.
@@ -32,8 +32,10 @@ public class TestApplication extends Application
         final Set<Class<?>> clazzes = new HashSet<Class<?>>();
 
         clazzes.add(OpenApiResource.class);
+        clazzes.add(EleveRessource.class);
+        clazzes.add(ProfesseurRessource.class);
+        clazzes.add(RDVRessource.class);
         clazzes.add(API.class);
-        clazzes.add(Swagger.class);
 //        clazzes.add(Eleve.class);
 //        clazzes.add(Professeur.class);
 //        clazzes.add(AcceptHeaderOpenApiResource.class);

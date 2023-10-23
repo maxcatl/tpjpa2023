@@ -1,6 +1,7 @@
 package fr.istic.domain;
 
 import jakarta.persistence.*;
+import jakarta.xml.bind.annotation.XmlRootElement;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.io.Serializable;
@@ -8,7 +9,7 @@ import java.time.Duration;
 import java.util.Date;
 
 @Entity
-//@XmlRootElement (name = "rendez-vous")
+@XmlRootElement(name = "rendez-vous")
 public class RDV implements Serializable
 {
     private Long id;
