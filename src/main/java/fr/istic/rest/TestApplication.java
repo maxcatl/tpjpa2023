@@ -36,10 +36,6 @@ public class TestApplication extends Application
         clazzes.add(ProfesseurRessource.class);
         clazzes.add(RDVRessource.class);
         clazzes.add(API.class);
-//        clazzes.add(Eleve.class);
-//        clazzes.add(Professeur.class);
-//        clazzes.add(AcceptHeaderOpenApiResource.class);
-
 
         return clazzes;
     }
