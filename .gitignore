@@ -1,1 +1,4 @@
 target/
+istic.iml
+testjpa.iml
+src/main/webapp/swagger/dist/*.map
