@@ -1,23 +1,28 @@
 package fr.istic.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 
 
-//@XmlRootElement(name = "Utilisateur")
 @Entity
 @Inheritance (strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Utilisateur implements Serializable
 {
     private long id;
+    @NotNull
     private String nom;
+    @NotNull
     private String prenom;
+    @NotNull
     private String email;
 
 //    private List<RDV> rdvs = Collections.emptyList();
 
-    protected Utilisateur(){}
+    protected Utilisateur()
+    {
+    }
 
     protected Utilisateur(String nom, String prenom, String email)
     {
@@ -30,7 +35,6 @@ public abstract class Utilisateur implements Serializable
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-//    @XmlElement(name = "id")
     public long getId()
     {
         return id;
@@ -42,7 +46,8 @@ public abstract class Utilisateur implements Serializable
         return this;
     }
 
-    //    @XmlElement(name = "name")
+    @NotNull
+    @Column(nullable = false)
     public String getNom()
     {
         return nom;
@@ -54,7 +59,8 @@ public abstract class Utilisateur implements Serializable
         return this;
     }
 
-    //    @XmlElement(name = "firstname")
+    @NotNull
+    @Column(nullable = false)
     public String getPrenom()
     {
         return prenom;
@@ -66,7 +72,8 @@ public abstract class Utilisateur implements Serializable
         return this;
     }
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
+    @NotNull
     public String getEmail()
     {
         return email;

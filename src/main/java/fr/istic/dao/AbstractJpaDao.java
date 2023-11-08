@@ -3,10 +3,10 @@ package fr.istic.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import fr.istic.jpa.EntityManagerHelper;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
-import fr.istic.jpa.EntityManagerHelper;
 import jakarta.persistence.RollbackException;
 
 public abstract class AbstractJpaDao<K, T extends Serializable> implements IGenericDao<K, T> {

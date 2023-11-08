@@ -5,13 +5,14 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 public class EntityManagerHelper {
-
     private static final EntityManagerFactory emf; 
     private static final ThreadLocal<EntityManager> threadLocal;
 
+    private EntityManagerHelper(){}
+
     static {
         emf = Persistence.createEntityManagerFactory("mysql");
-        threadLocal = new ThreadLocal<EntityManager>();
+        threadLocal = new ThreadLocal<>();
     }
 
     public static EntityManager getEntityManager() {
@@ -28,7 +29,7 @@ public class EntityManagerHelper {
         EntityManager em = threadLocal.get();
         if (em != null) {
             em.close();
-            threadLocal.set(null);
+            threadLocal.remove();
         }
     }
 

@@ -1,18 +1,21 @@
 package fr.istic.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @XmlRootElement(name = "eleve")
+@Component
 public class Eleve extends Utilisateur
 {
     private String formation;
-    private List<RDV> rdvs = new ArrayList<>();
+    private transient List<RDV> rdvs = new ArrayList<>();
 
     public Eleve(){}
 
@@ -30,6 +33,7 @@ public class Eleve extends Utilisateur
 
     @OneToMany(mappedBy = "eleve")
     @XmlTransient
+    @JsonIgnore
     public List<RDV> getRdvs()
     {
         return rdvs;
