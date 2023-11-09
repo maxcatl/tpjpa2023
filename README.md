@@ -39,7 +39,7 @@ Il est possible de modifier cette adresse en modifiant la propriété value de l
 ```
 dans `src/main/ressources/META-INF/persistence.xml`
 
-Par défaut, il n'y a pas de données dans la base de données, mais il est possible d'en rajouter en exécutant la classe `JpaTest` qui s'utilise comme dans le TP1. L'exécution se passera sans erreurs si les tables viennent d'être créées et sont vides (ou pas encore créées) car sinon les id risquent de différer.
+Par défaut, il n'y a pas de données dans la base de données, mais contrairement aux TP précédents, il est possible de rajouter des données en effectuant une requête HTTP `PUT` avec l'URL `localhost:8080/loadSampleData`. Il est préférable, mais pas obligatoire d'appeler cette requête lorsqu'il n'y a pas encore de données enregistrées, sinon il pourrait y avoir un conflit, notamment en cas de conflit sur l'adresse email. En cas d'erreur, la réponse comporte le code `500`, sinon elle comporte le code `201`.
 
 
 ### Utilisation de l'API Rest
