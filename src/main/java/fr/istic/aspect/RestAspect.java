@@ -23,6 +23,6 @@ public class RestAspect
         for (int i=0 ; i<jpp.getArgs().length ; i++)
             builder.append(i + " : " + jpp.getArgs()[i] + "\n");
 
-        logger.info(builder.toString());
+        logger.info(builder::toString);
     }
 }

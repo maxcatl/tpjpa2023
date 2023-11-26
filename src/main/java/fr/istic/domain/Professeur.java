@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
-import org.springframework.data.annotation.Transient;
 import org.springframework.stereotype.Component;
 import org.wildfly.common.annotation.NotNull;
 

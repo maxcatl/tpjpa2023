@@ -2,7 +2,6 @@ package fr.istic.dao;
 
 import fr.istic.domain.Eleve;
 import io.micrometer.common.lang.NonNullApi;
-import jakarta.persistence.Entity;
 import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
